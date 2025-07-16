@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Shield, Phone, MapPin } from "lucide-react";
+import { Menu, X, MapPin } from "lucide-react";
 import { useState } from "react";
+import beresinLogo from "@/assets/beresin-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,11 +12,9 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo & Brand */}
           <div className="flex items-center space-x-3">
-            <div className="bg-primary-foreground rounded-lg p-2">
-              <Shield className="h-6 w-6 text-primary" />
-            </div>
+            <img src={beresinLogo} alt="Beresin Logo" className="h-10 w-10" />
             <div>
-              <h1 className="text-2xl font-bold text-primary-foreground">Beresin</h1>
+              <h1 className="text-2xl font-bold text-primary-foreground">BERESIN</h1>
               <p className="text-primary-foreground/80 text-xs">Tukang Terpercaya</p>
             </div>
           </div>
@@ -35,8 +34,8 @@ const Header = () => {
               Kontak
             </a>
             <Button variant="cta" size="sm">
-              <Phone className="h-4 w-4" />
-              Pesan Sekarang
+              <MapPin className="h-4 w-4" />
+              Cari Tukang
             </Button>
           </nav>
 
@@ -82,8 +81,8 @@ const Header = () => {
                 Kontak
               </a>
               <Button variant="cta" size="sm" className="mt-2">
-                <Phone className="h-4 w-4" />
-                Pesan Sekarang
+                <MapPin className="h-4 w-4" />
+                Cari Tukang
               </Button>
             </div>
           </nav>

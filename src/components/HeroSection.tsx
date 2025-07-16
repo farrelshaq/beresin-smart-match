@@ -11,11 +11,11 @@ const HeroSection = () => {
   const [estimatedPrice, setEstimatedPrice] = useState<string | null>(null);
 
   const services = [
-    { id: "ac", name: "Service AC", basePrice: 150000 },
-    { id: "listrik", name: "Perbaikan Listrik", basePrice: 200000 },
-    { id: "ledeng", name: "Ledeng & Pipa", basePrice: 180000 },
-    { id: "mesin-cuci", name: "Service Mesin Cuci", basePrice: 120000 },
-    { id: "kulkas", name: "Service Kulkas", basePrice: 170000 },
+    { id: "ac", name: "Service AC", basePrice: 150000, estimatedTime: "1-2 jam", difficulty: "sedang" },
+    { id: "listrik", name: "Perbaikan Listrik", basePrice: 200000, estimatedTime: "30 menit - 3 jam", difficulty: "tinggi" },
+    { id: "ledeng", name: "Ledeng & Pipa", basePrice: 180000, estimatedTime: "1-4 jam", difficulty: "sedang" },
+    { id: "mesin-cuci", name: "Service Mesin Cuci", basePrice: 120000, estimatedTime: "45 menit - 2 jam", difficulty: "mudah" },
+    { id: "kulkas", name: "Service Kulkas", basePrice: 170000, estimatedTime: "1-3 jam", difficulty: "sedang" },
   ];
 
   const locations = [
@@ -154,10 +154,18 @@ const HeroSection = () => {
                     <div className="bg-success/10 border border-success/20 rounded-lg p-4 mt-4">
                       <div className="flex items-center gap-2 mb-2">
                         <Clock className="h-4 w-4 text-success" />
-                        <span className="text-sm font-medium text-success">Estimasi Harga</span>
+                        <span className="text-sm font-medium text-success">Estimasi Detail</span>
                       </div>
                       <p className="text-2xl font-bold text-success">{estimatedPrice}</p>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <div className="mt-3 space-y-1 text-sm">
+                        <p className="text-muted-foreground">
+                          ⏱️ <strong>Waktu pengerjaan:</strong> {services.find(s => s.id === selectedService)?.estimatedTime}
+                        </p>
+                        <p className="text-muted-foreground">
+                          🔧 <strong>Tingkat kesulitan:</strong> {services.find(s => s.id === selectedService)?.difficulty}
+                        </p>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-2">
                         *Harga sudah termasuk biaya jasa & material dasar
                       </p>
                     </div>
